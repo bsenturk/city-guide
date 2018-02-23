@@ -12,6 +12,9 @@
 		FA2B8ACC2040C2E200A97771 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2B8ACA2040C2E200A97771 /* Main.storyboard */; };
 		FA2B8ACE2040C2E200A97771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2B8ACD2040C2E200A97771 /* Assets.xcassets */; };
 		FA2B8AD12040C2E200A97771 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2B8ACF2040C2E200A97771 /* LaunchScreen.storyboard */; };
+		FA2B8ADA2040C68700A97771 /* TouristicVenuesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8AD92040C68700A97771 /* TouristicVenuesController.swift */; };
+		FA2B8ADC2040D02D00A97771 /* NearTouristicVenuesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8ADB2040D02D00A97771 /* NearTouristicVenuesController.swift */; };
+		FA2B8ADE2040D11F00A97771 /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8ADD2040D11F00A97771 /* FavouritesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		FA2B8ACD2040C2E200A97771 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA2B8AD02040C2E200A97771 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA2B8AD22040C2E200A97771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA2B8AD92040C68700A97771 /* TouristicVenuesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristicVenuesController.swift; sourceTree = "<group>"; };
+		FA2B8ADB2040D02D00A97771 /* NearTouristicVenuesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearTouristicVenuesController.swift; sourceTree = "<group>"; };
+		FA2B8ADD2040D11F00A97771 /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,9 @@
 			isa = PBXGroup;
 			children = (
 				FA2B8AC82040C2E200A97771 /* MainTabBarController.swift */,
+				FA2B8AD92040C68700A97771 /* TouristicVenuesController.swift */,
+				FA2B8ADB2040D02D00A97771 /* NearTouristicVenuesController.swift */,
+				FA2B8ADD2040D11F00A97771 /* FavouritesController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -144,8 +153,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2B8ADE2040D11F00A97771 /* FavouritesController.swift in Sources */,
+				FA2B8ADC2040D02D00A97771 /* NearTouristicVenuesController.swift in Sources */,
 				FA2B8AC92040C2E200A97771 /* MainTabBarController.swift in Sources */,
 				FA2B8AC72040C2E200A97771 /* AppDelegate.swift in Sources */,
+				FA2B8ADA2040C68700A97771 /* TouristicVenuesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
