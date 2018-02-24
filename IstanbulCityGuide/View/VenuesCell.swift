@@ -28,10 +28,11 @@ class VenuesCell: UICollectionViewCell {
         return label
     }()
     
-    let favouritesButton : UIButton = {
+    lazy var favouritesButton : UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "favStar"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleFav), for: .touchUpInside)
         return button
     }()
     
@@ -41,6 +42,10 @@ class VenuesCell: UICollectionViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    @objc func handleFav(){
+        print("Handling like...")
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -12,6 +12,7 @@ class TouristicVenuesController: UICollectionViewController , UICollectionViewDe
    
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         collectionView?.backgroundColor = .white
         collectionView?.register(VenuesCell.self, forCellWithReuseIdentifier: Values.cellId.rawValue)
         
@@ -33,10 +34,19 @@ class TouristicVenuesController: UICollectionViewController , UICollectionViewDe
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Values.cellId.rawValue, for: indexPath) as! VenuesCell
-       
         
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVenuesController = DetailVenuesController()
+        detailVenuesController.hidesBottomBarWhenPushed = true
+        tabBarController?.navigationController?.navigationBar.tintColor = .black
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        tabBarController?.navigationItem.backBarButtonItem = backItem
+        tabBarController?.navigationController?.pushViewController(detailVenuesController, animated: true)
     }
   
 }

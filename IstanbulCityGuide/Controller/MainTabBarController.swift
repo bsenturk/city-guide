@@ -14,6 +14,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupControllers()
+        setupNavigationBar(text: "Touristic Venues")
     }
 
   
@@ -36,6 +37,31 @@ class MainTabBarController: UITabBarController {
             item.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
         }
     }
+   
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+         guard let items = tabBar.items else { return }
+        
+        if items.index(of: item) == 0 {
+            setupNavigationBar(text: "Touristic Venues")
+        }
+        else if items.index(of: item) == 1 {
+            setupNavigationBar(text: "Near Venues")
+        }
+        
+        else if items.index(of: item) == 2 {
+            setupNavigationBar(text: "Favourites Venues")
+        }
+    }
+    
+    fileprivate func setupNavigationBar(text: String){
+        let label = UILabel()
+        label.text = text
+        label.textColor = .white
+        label.font = UIFont(name: "Remachine Script Personal Use", size: 42)
+        
+        navigationItem.titleView = label
+        
+    }
     
     
     fileprivate func setupNavigationControllers(image : UIImage, selectedImage: UIImage,rootViewController : UIViewController = UIViewController()) -> UINavigationController{
@@ -47,6 +73,8 @@ class MainTabBarController: UITabBarController {
         
         return navController
     }
+    
+   
 
 }
 
