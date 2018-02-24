@@ -9,28 +9,30 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
+    
+ 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupControllers()
-        setupNavigationBar(text: "Touristic Venues")
     }
 
   
     func setupControllers(){
         let layout = UICollectionViewFlowLayout()
-        let touristicVenuesController = setupNavigationControllers(image: UIImage(named : "venuesList")!, selectedImage: UIImage(named : "venuesListSelected")!, rootViewController: TouristicVenuesController(collectionViewLayout: layout) )
-        let nearTouristicVenuesController = setupNavigationControllers(image: UIImage(named: "nearVenues")!, selectedImage: UIImage(named: "nearVenuesSelected")!, rootViewController: NearTouristicVenuesController())
-        let favouritesController = setupNavigationControllers(image: UIImage(named: "favourites")!, selectedImage: UIImage(named: "favouritesSelected")!, rootViewController: FavouritesController())
+        let touristicVenuesController = setupNavigationControllers(image: UIImage(named : "venuesList")!, selectedImage: UIImage(named : "venuesListSelected")!, rootViewController: TouristicVenuesController(collectionViewLayout: layout), title: "Touristic Venues" )
+        let nearTouristicVenuesController = setupNavigationControllers(image: UIImage(named: "nearVenues")!, selectedImage: UIImage(named: "nearVenuesSelected")!, rootViewController: NearTouristicVenuesController(), title: "Near Venues")
+        let favouritesController = setupNavigationControllers(image: UIImage(named: "favourites")!, selectedImage: UIImage(named: "favouritesSelected")!, rootViewController: FavouritesController(), title: "Favourites Venues")
+        
         
         viewControllers = [
            touristicVenuesController,
            nearTouristicVenuesController,
            favouritesController
-        
+
         ]
-        
+
         guard let items = tabBar.items else { return }
         
         for item in items {
@@ -38,40 +40,24 @@ class MainTabBarController: UITabBarController {
         }
     }
    
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-         guard let items = tabBar.items else { return }
-        
-        if items.index(of: item) == 0 {
-            setupNavigationBar(text: "Touristic Venues")
-        }
-        else if items.index(of: item) == 1 {
-            setupNavigationBar(text: "Near Venues")
-        }
-        
-        else if items.index(of: item) == 2 {
-            setupNavigationBar(text: "Favourites Venues")
-        }
-    }
+  
+
+ 
     
-    fileprivate func setupNavigationBar(text: String){
-        let label = UILabel()
-        label.text = text
-        label.textColor = .white
-        label.font = UIFont(name: "Remachine Script Personal Use", size: 42)
+    fileprivate func setupNavigationControllers(image : UIImage, selectedImage: UIImage,rootViewController : UIViewController = UIViewController() , title : String) -> UINavigationController{
         
-        navigationItem.titleView = label
-        
-    }
-    
-    
-    fileprivate func setupNavigationControllers(image : UIImage, selectedImage: UIImage,rootViewController : UIViewController = UIViewController()) -> UINavigationController{
         let viewControllers = rootViewController
-        let navController = UINavigationController(rootViewController: viewControllers)
+         let navController = UINavigationController(rootViewController: viewControllers)
         navController.tabBarItem.image = image.withRenderingMode(.alwaysOriginal)
         navController.tabBarItem.selectedImage = selectedImage.withRenderingMode(.alwaysOriginal)
-        
-        
+        let label = UILabel()
+        label.text = title
+        label.textColor = .white
+        label.font = UIFont(name: "Remachine Script Personal Use", size: 42)
+        navController.navigationBar.topItem?.titleView = label
+
         return navController
+        
     }
     
    

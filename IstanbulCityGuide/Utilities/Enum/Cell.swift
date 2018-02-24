@@ -7,6 +7,7 @@
 //
 
 import Foundation
-enum Values : String  {
+enum Cell : String  {
     case cellId
+    case rowId
 }

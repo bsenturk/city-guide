@@ -13,15 +13,17 @@ class TouristicVenuesController: UICollectionViewController , UICollectionViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
       
+     
+      
         collectionView?.backgroundColor = .white
-        collectionView?.register(VenuesCell.self, forCellWithReuseIdentifier: Values.cellId.rawValue)
+        collectionView?.register(VenuesCell.self, forCellWithReuseIdentifier: Cell.cellId.rawValue)
         
        
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 25
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -33,7 +35,7 @@ class TouristicVenuesController: UICollectionViewController , UICollectionViewDe
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Values.cellId.rawValue, for: indexPath) as! VenuesCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.cellId.rawValue, for: indexPath) as! VenuesCell
         
         
         return cell
@@ -45,8 +47,8 @@ class TouristicVenuesController: UICollectionViewController , UICollectionViewDe
         tabBarController?.navigationController?.navigationBar.tintColor = .black
         let backItem = UIBarButtonItem()
         backItem.title = ""
-        tabBarController?.navigationItem.backBarButtonItem = backItem
-        tabBarController?.navigationController?.pushViewController(detailVenuesController, animated: true)
+        navigationController?.navigationItem.backBarButtonItem = backItem
+        navigationController?.navigationController?.pushViewController(detailVenuesController, animated: true)
     }
   
 }

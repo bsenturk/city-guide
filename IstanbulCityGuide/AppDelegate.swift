@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         let tabBarController = MainTabBarController()
-        let navigationController = UINavigationController(rootViewController: tabBarController)
+       // let navigationController = UINavigationController(rootViewController: tabBarController)
        UINavigationBar.appearance().barTintColor = UIColor.init(red: 0/255, green: 191/255, blue: 255/255, alpha: 1)
-        window?.rootViewController = navigationController
+        window?.rootViewController = tabBarController
         
         
         return true
