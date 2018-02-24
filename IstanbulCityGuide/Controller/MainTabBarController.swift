@@ -18,8 +18,8 @@ class MainTabBarController: UITabBarController {
 
   
     func setupControllers(){
-
-        let touristicVenuesController = setupNavigationControllers(image: UIImage(named : "venuesList")!, selectedImage: UIImage(named : "venuesListSelected")!, rootViewController: TouristicVenuesController())
+        let layout = UICollectionViewFlowLayout()
+        let touristicVenuesController = setupNavigationControllers(image: UIImage(named : "venuesList")!, selectedImage: UIImage(named : "venuesListSelected")!, rootViewController: TouristicVenuesController(collectionViewLayout: layout) )
         let nearTouristicVenuesController = setupNavigationControllers(image: UIImage(named: "nearVenues")!, selectedImage: UIImage(named: "nearVenuesSelected")!, rootViewController: NearTouristicVenuesController())
         let favouritesController = setupNavigationControllers(image: UIImage(named: "favourites")!, selectedImage: UIImage(named: "favouritesSelected")!, rootViewController: FavouritesController())
         

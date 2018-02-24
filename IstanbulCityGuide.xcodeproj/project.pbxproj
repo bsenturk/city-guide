@@ -15,6 +15,8 @@
 		FA2B8ADA2040C68700A97771 /* TouristicVenuesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8AD92040C68700A97771 /* TouristicVenuesController.swift */; };
 		FA2B8ADC2040D02D00A97771 /* NearTouristicVenuesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8ADB2040D02D00A97771 /* NearTouristicVenuesController.swift */; };
 		FA2B8ADE2040D11F00A97771 /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8ADD2040D11F00A97771 /* FavouritesController.swift */; };
+		FA2B8AE120416E7200A97771 /* VenuesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8AE020416E7200A97771 /* VenuesCell.swift */; };
+		FA2B8AE420416F4100A97771 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8AE320416F4100A97771 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		FA2B8AD92040C68700A97771 /* TouristicVenuesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristicVenuesController.swift; sourceTree = "<group>"; };
 		FA2B8ADB2040D02D00A97771 /* NearTouristicVenuesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearTouristicVenuesController.swift; sourceTree = "<group>"; };
 		FA2B8ADD2040D11F00A97771 /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesController.swift; sourceTree = "<group>"; };
+		FA2B8AE020416E7200A97771 /* VenuesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesCell.swift; sourceTree = "<group>"; };
+		FA2B8AE320416F4100A97771 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 		FA2B8AC52040C2E200A97771 /* IstanbulCityGuide */ = {
 			isa = PBXGroup;
 			children = (
+				FA2B8AE220416F2F00A97771 /* Utilities */,
+				FA2B8ADF20416E6000A97771 /* View */,
 				FA2B8AD82040C53F00A97771 /* Controller */,
 				FA2B8AC62040C2E200A97771 /* AppDelegate.swift */,
 				FA2B8ACA2040C2E200A97771 /* Main.storyboard */,
@@ -73,12 +79,28 @@
 		FA2B8AD82040C53F00A97771 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FA2B8AC82040C2E200A97771 /* MainTabBarController.swift */,
 				FA2B8AD92040C68700A97771 /* TouristicVenuesController.swift */,
 				FA2B8ADB2040D02D00A97771 /* NearTouristicVenuesController.swift */,
 				FA2B8ADD2040D11F00A97771 /* FavouritesController.swift */,
+				FA2B8AC82040C2E200A97771 /* MainTabBarController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA2B8ADF20416E6000A97771 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA2B8AE020416E7200A97771 /* VenuesCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA2B8AE220416F2F00A97771 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FA2B8AE320416F4100A97771 /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,7 +179,9 @@
 				FA2B8ADC2040D02D00A97771 /* NearTouristicVenuesController.swift in Sources */,
 				FA2B8AC92040C2E200A97771 /* MainTabBarController.swift in Sources */,
 				FA2B8AC72040C2E200A97771 /* AppDelegate.swift in Sources */,
+				FA2B8AE420416F4100A97771 /* Constants.swift in Sources */,
 				FA2B8ADA2040C68700A97771 /* TouristicVenuesController.swift in Sources */,
+				FA2B8AE120416E7200A97771 /* VenuesCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
