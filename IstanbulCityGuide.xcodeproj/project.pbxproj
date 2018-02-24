@@ -19,6 +19,7 @@
 		FA2B8AE420416F4100A97771 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8AE320416F4100A97771 /* Constants.swift */; };
 		FA2B8B0420418DB700A97771 /* DetailVenuesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8B0320418DB700A97771 /* DetailVenuesController.swift */; };
 		FA2B8B07204193A900A97771 /* RemachineScript.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2B8B06204193A900A97771 /* RemachineScript.ttf */; };
+		FA2B8B0A2041B60B00A97771 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8B092041B60B00A97771 /* Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FA2B8AE320416F4100A97771 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA2B8B0320418DB700A97771 /* DetailVenuesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVenuesController.swift; sourceTree = "<group>"; };
 		FA2B8B06204193A900A97771 /* RemachineScript.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RemachineScript.ttf; sourceTree = "<group>"; };
+		FA2B8B092041B60B00A97771 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		FA2B8AE220416F2F00A97771 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				FA2B8B082041B5F800A97771 /* Enum */,
 				FA2B8B052041937000A97771 /* Font */,
 				FA2B8AE320416F4100A97771 /* Constants.swift */,
 			);
@@ -115,6 +118,14 @@
 				FA2B8B06204193A900A97771 /* RemachineScript.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		FA2B8B082041B5F800A97771 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				FA2B8B092041B60B00A97771 /* Cell.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +206,7 @@
 				FA2B8AC92040C2E200A97771 /* MainTabBarController.swift in Sources */,
 				FA2B8AC72040C2E200A97771 /* AppDelegate.swift in Sources */,
 				FA2B8B0420418DB700A97771 /* DetailVenuesController.swift in Sources */,
+				FA2B8B0A2041B60B00A97771 /* Cell.swift in Sources */,
 				FA2B8AE420416F4100A97771 /* Constants.swift in Sources */,
 				FA2B8ADA2040C68700A97771 /* TouristicVenuesController.swift in Sources */,
 				FA2B8AE120416E7200A97771 /* VenuesCell.swift in Sources */,
