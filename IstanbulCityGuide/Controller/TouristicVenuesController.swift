@@ -44,11 +44,12 @@ class TouristicVenuesController: UICollectionViewController , UICollectionViewDe
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVenuesController = DetailVenuesController()
         detailVenuesController.hidesBottomBarWhenPushed = true
-        tabBarController?.navigationController?.navigationBar.tintColor = .black
-        let backItem = UIBarButtonItem()
+        navigationController?.navigationBar.tintColor = .black
+       let backItem = UIBarButtonItem()
         backItem.title = ""
-        navigationController?.navigationItem.backBarButtonItem = backItem
-        navigationController?.navigationController?.pushViewController(detailVenuesController, animated: true)
+        navigationItem.backBarButtonItem? = backItem
+        
+        navigationController?.pushViewController(detailVenuesController, animated: true)
     }
   
 }
