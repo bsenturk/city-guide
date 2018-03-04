@@ -21,6 +21,8 @@
 		FA2B8B07204193A900A97771 /* RemachineScript.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2B8B06204193A900A97771 /* RemachineScript.ttf */; };
 		FA2B8B0A2041B60B00A97771 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8B092041B60B00A97771 /* Cell.swift */; };
 		FA2B8B0D2041D57D00A97771 /* NearVenues.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8B0C2041D57D00A97771 /* NearVenues.swift */; };
+		FA38F8A7204ADAB1008D472A /* TouristicVenues.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38F8A6204ADAB1008D472A /* TouristicVenues.swift */; };
+		FA38F8A9204C1A93008D472A /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38F8A8204C1A93008D472A /* MapController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		FA2B8B06204193A900A97771 /* RemachineScript.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RemachineScript.ttf; sourceTree = "<group>"; };
 		FA2B8B092041B60B00A97771 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		FA2B8B0C2041D57D00A97771 /* NearVenues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearVenues.swift; sourceTree = "<group>"; };
+		FA38F8A6204ADAB1008D472A /* TouristicVenues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristicVenues.swift; sourceTree = "<group>"; };
+		FA38F8A8204C1A93008D472A /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 				FA2B8ADD2040D11F00A97771 /* FavouritesController.swift */,
 				FA2B8AC82040C2E200A97771 /* MainTabBarController.swift */,
 				FA2B8B0320418DB700A97771 /* DetailVenuesController.swift */,
+				FA38F8A8204C1A93008D472A /* MapController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				FA2B8B0C2041D57D00A97771 /* NearVenues.swift */,
+				FA38F8A6204ADAB1008D472A /* TouristicVenues.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,7 +220,9 @@
 			files = (
 				FA2B8ADE2040D11F00A97771 /* FavouritesController.swift in Sources */,
 				FA2B8ADC2040D02D00A97771 /* NearTouristicVenuesController.swift in Sources */,
+				FA38F8A7204ADAB1008D472A /* TouristicVenues.swift in Sources */,
 				FA2B8AC92040C2E200A97771 /* MainTabBarController.swift in Sources */,
+				FA38F8A9204C1A93008D472A /* MapController.swift in Sources */,
 				FA2B8AC72040C2E200A97771 /* AppDelegate.swift in Sources */,
 				FA2B8B0420418DB700A97771 /* DetailVenuesController.swift in Sources */,
 				FA2B8B0D2041D57D00A97771 /* NearVenues.swift in Sources */,

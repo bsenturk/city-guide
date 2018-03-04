@@ -9,10 +9,22 @@
 import UIKit
 class VenuesCell: UICollectionViewCell {
     
+    var venues : TouristicVenues? {
+        didSet{
+            guard let image = venues?.image else { return }
+            let decodedData : Data = Data(base64Encoded: image, options: .ignoreUnknownCharacters)!
+            print(decodedData)
+            let decodedImage = UIImage(data: decodedData)
+            venueImages.image = decodedImage
+            
+        }
+    }
+  
+
     
     let venueImages : UIImageView = {
        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFill
+        iv.contentMode = .scaleToFill
         iv.backgroundColor = .blue
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.clipsToBounds = true
@@ -51,29 +63,31 @@ class VenuesCell: UICollectionViewCell {
         super.init(frame: frame)
         backgroundColor = .white
         addSubview(venueImages)
-        venueImages.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
-        venueImages.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        venueImages.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        venueImages.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        venueImages.layer.cornerRadius = 50 / 2
+        venueImages.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        venueImages.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        venueImages.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        venueImages.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
-        addSubview(venueNameLabel)
-        venueNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        venueNameLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        venueNameLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        venueNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        addSubview(favouritesButton)
-        favouritesButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        favouritesButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
-        favouritesButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        favouritesButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        addSubview(seperatorLine)
-        seperatorLine.topAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        seperatorLine.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        seperatorLine.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+//        addSubview(venueNameLabel)
+//        venueNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        venueNameLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+//        venueNameLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//        venueNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+//
+//        addSubview(favouritesButton)
+//        favouritesButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        favouritesButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
+//        favouritesButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+//        favouritesButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//
+//        addSubview(seperatorLine)
+//        seperatorLine.topAnchor.constraint(equalTo: bottomAnchor).isActive = true
+//        seperatorLine.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+//        seperatorLine.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         seperatorLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
+       
         
     }
     
