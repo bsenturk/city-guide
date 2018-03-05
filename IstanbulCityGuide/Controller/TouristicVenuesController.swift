@@ -35,15 +35,10 @@ class TouristicVenuesController: UICollectionViewController , UICollectionViewDe
             guard let data = data else { return }
             do {
                  let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as AnyObject
-             //   print(json)
-              // print(json)
-                
-                
+            
                
                 guard let venues = json["venues"] as? [[String : AnyObject]] else { return }
-              // print(venues)
-//                guard let name = venues["name"] as? AnyObject else { return}
-//                print(name)
+           
                 for venue : [String : AnyObject] in venues {
                     guard let name = venue["name"] as? String  else { return}
                      guard let image = venue["image"] as? String  else { return}
@@ -111,7 +106,7 @@ class TouristicVenuesController: UICollectionViewController , UICollectionViewDe
         navigationController?.navigationBar.tintColor = .black
        let backItem = UIBarButtonItem()
         backItem.title = ""
-        navigationItem.backBarButtonItem? = backItem
+        navigationItem.backBarButtonItem = backItem
         
         navigationController?.pushViewController(detailVenuesController, animated: true)
     }
