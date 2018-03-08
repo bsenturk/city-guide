@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import UserNotifications
 class CustomNavigationController: UINavigationController {
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
@@ -16,11 +16,34 @@ class CustomNavigationController: UINavigationController {
 
 class MainTabBarController: UITabBarController {
     
+    func setupLocalNotifications(){
+        let content = UNMutableNotificationContent()
+        content.title = "Continue to explore Istanbul"
+        content.body = "Let's go to learn that beauty of this city! "
+        content.badge = 1
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: "deneme", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+    }
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupControllers()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound , .badge]) { (isAllow, err) in
+            if let err = err {
+                print(err)
+            }
+            
+            if isAllow == true {
+                self.setupLocalNotifications()
+            }
+        }
+        
+        
     }
 
   
