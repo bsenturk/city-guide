@@ -8,6 +8,12 @@
 
 import UIKit
 
+class CustomNavigationController: UINavigationController {
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+}
+
 class MainTabBarController: UITabBarController {
     
  
@@ -47,7 +53,7 @@ class MainTabBarController: UITabBarController {
     fileprivate func setupNavigationControllers(image : UIImage, selectedImage: UIImage,rootViewController : UIViewController = UIViewController() , title : String) -> UINavigationController{
         
         let viewControllers = rootViewController
-         let navController = UINavigationController(rootViewController: viewControllers)
+         let navController = CustomNavigationController(rootViewController: viewControllers)
         navController.tabBarItem.image = image.withRenderingMode(.alwaysOriginal)
         navController.tabBarItem.selectedImage = selectedImage.withRenderingMode(.alwaysOriginal)
         let label = UILabel()

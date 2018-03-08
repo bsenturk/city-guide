@@ -9,20 +9,34 @@
 import UIKit
 import MapKit
 import CoreLocation
-class MapController: UIViewController {
-    
+class MapController: UIViewController , CLLocationManagerDelegate {
+    var name : String?
+    var lat : Double?
+    var lng : Double?
+
     var touristicVenues : TouristicVenues? {
         didSet{
-            guard let lat = touristicVenues?.lat else { return }
-             guard let lng = touristicVenues?.lng else { return }
-             guard let name = touristicVenues?.name else { return }
-            setupMapView(lat: lat, lng: lng, name: name)
+//              guard let name = touristicVenues?.name else { return }
+//            guard let lat = touristicVenues?.lat else { return }
+//             guard let lng = touristicVenues?.lng else { return }
+           
+
+            
         }
         
     }
+     let mapView = MKMapView()
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last as! CLLocation
+        
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        self.mapView.setRegion(region, animated: true)
+    }
     
     private func setupMapView(lat : Double , lng : Double , name : String){
-        let mapView = MKMapView()
+       
         mapView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         mapView.mapType = .standard
         mapView.isZoomEnabled = true
@@ -46,5 +60,6 @@ class MapController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         setupMapView(lat: lat!, lng: lng!, name: name!)
     }
 }

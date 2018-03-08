@@ -7,7 +7,14 @@
 //
 
 import UIKit
+import CoreData
+
+protocol FavouritesVenuesDelegate {
+    func didFav(favVenue : Favourites)
+}
+
 class DetailVenuesController: UIViewController {
+    var delegate : FavouritesVenuesDelegate?
     
     var venuesDetail : TouristicVenues?{
         didSet{
@@ -26,6 +33,20 @@ class DetailVenuesController: UIViewController {
             
         }
     }
+    
+    //var venuesDetailFromFav : Favourites? //{
+//        didSet{
+//            guard let image = venuesDetailFromFav?.image else { return }
+//            guard let name = venuesDetailFromFav?.name else { return }
+//            guard let detail = venuesDetailFromFav?.detail else { return }
+//
+//            venuesImageView.image = UIImage(data: image)
+//            navigationItem.title = name
+//            detailTextView.text = detail
+//        }
+    //}
+    
+    var venuesObject = [Favourites]()
    
     
     let venuesImageView : UIImageView = {
@@ -74,9 +95,17 @@ class DetailVenuesController: UIViewController {
     self.mapButton.bounds = CGRect(x: self.mapButton.bounds.origin.x - 20, y: self.mapButton.bounds.origin.y, width: self.mapButton.bounds.width + 60, height: self.mapButton.bounds.height)
     
     }) { (_) in
+        guard let name = self.venuesDetail?.name else { return}
+        guard let lat = self.venuesDetail?.lat else { return }
+        guard let lng = self.venuesDetail?.lng else { return }
         
         let mapController = MapController()
-        mapController.touristicVenues = self.venuesDetail
+        mapController.name = name
+        mapController.lat = lat
+        mapController.lng = lng
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        self.navigationItem.backBarButtonItem = backItem
         self.navigationController?.pushViewController(mapController, animated: true)
         self.mapButton.bounds = CGRect(x: self.mapButton.bounds.origin.x - 20, y: self.mapButton.bounds.origin.y, width: self.mapButton.bounds.width - 60, height: self.mapButton.bounds.height)
     }
@@ -101,10 +130,39 @@ class DetailVenuesController: UIViewController {
             UserDefaults.standard.removeObject(forKey: (venuesDetail?.name)!)
             
             
+            
         }else{
                 flashAnimation()
         favButton.setImage(#imageLiteral(resourceName: "icons8-star-filled-96"), for: .normal)
             UserDefaults.standard.set(1, forKey: (venuesDetail?.name)!)
+            guard let name = venuesDetail?.name else { return}
+            guard let image = venuesDetail?.image else { return }
+            guard let detail = venuesDetail?.detail else { return }
+            guard let lat = venuesDetail?.lat else { return }
+            guard let lng = venuesDetail?.lng else { return }
+//            let decodedData : Data = Data(base64Encoded: image, options: .ignoreUnknownCharacters)!
+//            let imageData = UIImage(data: decodedData)
+            
+            let context = CoreDataManager.shared.persistenceContainer.viewContext
+            let venues = NSEntityDescription.insertNewObject(forEntityName: "Favourites", into: context)
+            
+            venues.setValue(name, forKey: "name")
+            
+            self.delegate?.didFav(favVenue: venues as! Favourites)
+            
+            //let imageBinaryData = UIImageJPEGRepresentation(imageData!, 0.8)
+            venues.setValue(image, forKey: "image")
+            venues.setValue(detail, forKey: "detail")
+            venues.setValue(lat, forKey: "lat")
+            venues.setValue(lng, forKey: "lng")
+            do{
+             try context.save()
+               
+                
+            }catch let err {
+                print(err)
+            }
+            
         }
     }
 
@@ -161,6 +219,7 @@ class DetailVenuesController: UIViewController {
         }, completion: {(_) in
             let label = UILabel()
             label.text = self.venuesDetail?.name
+           
             label.textColor = .white
             label.font = UIFont.boldSystemFont(ofSize: 18)
             
@@ -180,12 +239,19 @@ class DetailVenuesController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationController?.navigationBar.tintColor = .white
+        guard let name = self.venuesDetail?.name else { return }
+      //  guard let nameFromFav = self.venuesDetailFromFav?.name else { return }
         
-        if UserDefaults.isExists(key: (venuesDetail?.name)!){
+        if UserDefaults.isExists(key: name) {
             favButton.setImage(#imageLiteral(resourceName: "icons8-star-filled-96"), for: .normal)
         }else {
             favButton.setImage(#imageLiteral(resourceName: "icons8-star-filled-96-2"), for: .normal)
         }
+        self.venuesObject = CoreDataManager.shared.fetchVenues()
+        venuesObject.forEach { (fav) in
+            print(fav.name)
+        }
+        
         
         setupUI()
         setupAnimation()

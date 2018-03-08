@@ -10,6 +10,10 @@ import UIKit
 class NearTouristicVenuesController: UITableViewController {
     
     var nearVenues = [NearVenues]()
+    var nearVen = [TouristicVenues]()
+    var name : String?
+    var lat : Double?
+    var lng : Double?
     
     private func setupNearestTouristicVenues(){
         
@@ -82,6 +86,25 @@ class NearTouristicVenuesController: UITableViewController {
        cell.textLabel?.text = nearVenues[indexPath.row].name
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        name = nearVenues[indexPath.row].name
+        lat = nearVenues[indexPath.row].lat
+        lng = nearVenues[indexPath.row].lng
+        let dict = TouristicVenues(name: name!, image: "", detail: "", lat: lat!, lng: lng!)
+        self.nearVen.append(dict)
+        let mapController = MapController()
+        mapController.hidesBottomBarWhenPushed = true
+        mapController.name = nearVenues[indexPath.row].name
+        mapController.lat = nearVenues[indexPath.row].lat
+        mapController.lng = nearVenues[indexPath.row].lng
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.pushViewController(mapController, animated: true)
+
     }
     
     

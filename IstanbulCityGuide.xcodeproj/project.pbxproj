@@ -21,10 +21,13 @@
 		FA2B8B07204193A900A97771 /* RemachineScript.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA2B8B06204193A900A97771 /* RemachineScript.ttf */; };
 		FA2B8B0A2041B60B00A97771 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8B092041B60B00A97771 /* Cell.swift */; };
 		FA2B8B0D2041D57D00A97771 /* NearVenues.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B8B0C2041D57D00A97771 /* NearVenues.swift */; };
+		FA359BF0204DE8F50028FF59 /* FavouritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA359BEF204DE8F50028FF59 /* FavouritesCell.swift */; };
+		FA359BF2204DEDEB0028FF59 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA359BF1204DEDEB0028FF59 /* CoreDataManager.swift */; };
 		FA38F8A7204ADAB1008D472A /* TouristicVenues.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38F8A6204ADAB1008D472A /* TouristicVenues.swift */; };
 		FA38F8A9204C1A93008D472A /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38F8A8204C1A93008D472A /* MapController.swift */; };
 		FAC5D98D204D36CD008EB164 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5D98C204D36CD008EB164 /* UserDefaultsManager.swift */; };
 		FAC5D98F204D4019008EB164 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5D98E204D4019008EB164 /* UserDefaultsKey.swift */; };
+		FAC5D995204D596F008EB164 /* FavouriteVenuesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAC5D993204D596F008EB164 /* FavouriteVenuesModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,10 +47,13 @@
 		FA2B8B06204193A900A97771 /* RemachineScript.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RemachineScript.ttf; sourceTree = "<group>"; };
 		FA2B8B092041B60B00A97771 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		FA2B8B0C2041D57D00A97771 /* NearVenues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearVenues.swift; sourceTree = "<group>"; };
+		FA359BEF204DE8F50028FF59 /* FavouritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCell.swift; sourceTree = "<group>"; };
+		FA359BF1204DEDEB0028FF59 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FA38F8A6204ADAB1008D472A /* TouristicVenues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristicVenues.swift; sourceTree = "<group>"; };
 		FA38F8A8204C1A93008D472A /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		FAC5D98C204D36CD008EB164 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		FAC5D98E204D4019008EB164 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		FAC5D994204D596F008EB164 /* FavouriteVenuesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavouriteVenuesModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 				FA2B8ACD2040C2E200A97771 /* Assets.xcassets */,
 				FA2B8ACF2040C2E200A97771 /* LaunchScreen.storyboard */,
 				FA2B8AD22040C2E200A97771 /* Info.plist */,
+				FAC5D993204D596F008EB164 /* FavouriteVenuesModel.xcdatamodeld */,
 			);
 			path = IstanbulCityGuide;
 			sourceTree = "<group>";
@@ -118,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				FA2B8AE020416E7200A97771 /* VenuesCell.swift */,
+				FA359BEF204DE8F50028FF59 /* FavouritesCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +137,7 @@
 				FA2B8B052041937000A97771 /* Font */,
 				FA2B8AE320416F4100A97771 /* Constants.swift */,
 				FAC5D98C204D36CD008EB164 /* UserDefaultsManager.swift */,
+				FA359BF1204DEDEB0028FF59 /* CoreDataManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -234,10 +243,13 @@
 			files = (
 				FA2B8ADE2040D11F00A97771 /* FavouritesController.swift in Sources */,
 				FA2B8ADC2040D02D00A97771 /* NearTouristicVenuesController.swift in Sources */,
+				FAC5D995204D596F008EB164 /* FavouriteVenuesModel.xcdatamodeld in Sources */,
 				FA38F8A7204ADAB1008D472A /* TouristicVenues.swift in Sources */,
+				FA359BF2204DEDEB0028FF59 /* CoreDataManager.swift in Sources */,
 				FAC5D98D204D36CD008EB164 /* UserDefaultsManager.swift in Sources */,
 				FA2B8AC92040C2E200A97771 /* MainTabBarController.swift in Sources */,
 				FA38F8A9204C1A93008D472A /* MapController.swift in Sources */,
+				FA359BF0204DE8F50028FF59 /* FavouritesCell.swift in Sources */,
 				FA2B8AC72040C2E200A97771 /* AppDelegate.swift in Sources */,
 				FA2B8B0420418DB700A97771 /* DetailVenuesController.swift in Sources */,
 				FA2B8B0D2041D57D00A97771 /* NearVenues.swift in Sources */,
@@ -430,6 +442,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FAC5D993204D596F008EB164 /* FavouriteVenuesModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FAC5D994204D596F008EB164 /* FavouriteVenuesModel.xcdatamodel */,
+			);
+			currentVersion = FAC5D994204D596F008EB164 /* FavouriteVenuesModel.xcdatamodel */;
+			path = FavouriteVenuesModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FA2B8ABB2040C2E100A97771 /* Project object */;
 }
