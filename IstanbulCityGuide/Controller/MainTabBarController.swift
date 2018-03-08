@@ -22,7 +22,7 @@ class MainTabBarController: UITabBarController {
         content.body = "Let's go to learn that beauty of this city! "
         content.badge = 1
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60 * 60, repeats: false)
         let request = UNNotificationRequest(identifier: "deneme", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
