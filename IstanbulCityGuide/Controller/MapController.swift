@@ -14,25 +14,18 @@ class MapController: UIViewController , CLLocationManagerDelegate {
     var lat : Double?
     var lng : Double?
 
-    var touristicVenues : TouristicVenues? {
-        didSet{
-//              guard let name = touristicVenues?.name else { return }
-//            guard let lat = touristicVenues?.lat else { return }
-//             guard let lng = touristicVenues?.lng else { return }
-           
-
-            
-        }
-        
-    }
+ 
      let mapView = MKMapView()
+    let manager = CLLocationManager()
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last as! CLLocation
+        let location = locations[0]
         
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: center, span: span)
         
         self.mapView.setRegion(region, animated: true)
+        mapView.showsUserLocation = true
     }
     
     private func setupMapView(lat : Double , lng : Double , name : String){
@@ -61,5 +54,9 @@ class MapController: UIViewController , CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
          setupMapView(lat: lat!, lng: lng!, name: name!)
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
     }
 }
