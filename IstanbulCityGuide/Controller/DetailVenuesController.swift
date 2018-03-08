@@ -128,8 +128,31 @@ class DetailVenuesController: UIViewController {
             flashAnimation()
             favButton.setImage(#imageLiteral(resourceName: "icons8-star-filled-96-2"), for: .normal)
             UserDefaults.standard.removeObject(forKey: (venuesDetail?.name)!)
+             guard let name = venuesDetail?.name else { return}
+            let context = CoreDataManager.shared.persistenceContainer.viewContext
+           let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Favourites")
+            fetchRequest.predicate = NSPredicate(format: "name = %@", name)
             
+            do{
+                let fetchedResult = try context.fetch(fetchRequest) as? [NSManagedObject]
+                for entity in fetchedResult!{
+                 context.delete(entity)
+                    
+                }
+                do {
+                    try context.save()
+                     NotificationCenter.default.post(name: NSNotification.Name(rawValue : "load"), object: nil)
+                }catch let err{
+                    print(err.localizedDescription)
+                }
+                
+                
+                
+            }catch let err{
+                print(err.localizedDescription)
+            }
             
+           
             
         }else{
                 flashAnimation()
@@ -157,6 +180,7 @@ class DetailVenuesController: UIViewController {
             venues.setValue(lng, forKey: "lng")
             do{
              try context.save()
+                 NotificationCenter.default.post(name: NSNotification.Name(rawValue : "load"), object: nil)
                
                 
             }catch let err {
@@ -248,16 +272,17 @@ class DetailVenuesController: UIViewController {
             favButton.setImage(#imageLiteral(resourceName: "icons8-star-filled-96-2"), for: .normal)
         }
         self.venuesObject = CoreDataManager.shared.fetchVenues()
-        venuesObject.forEach { (fav) in
-            print(fav.name)
-        }
+       
         
         
         setupUI()
         setupAnimation()
+       
         
-        
+   
         
     }
+    
+    
    
 }

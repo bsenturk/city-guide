@@ -49,6 +49,7 @@ class FavouritesController: UITableViewController , FavouritesVenuesDelegate {
             
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             
+            
             let context = CoreDataManager.shared.persistenceContainer.viewContext
             
             context.delete(fav)
@@ -92,14 +93,18 @@ class FavouritesController: UITableViewController , FavouritesVenuesDelegate {
         let detailVenuesController = DetailVenuesController()
         detailVenuesController.venuesDetail = venuesDetails[indexPath.row]
         detailVenuesController.hidesBottomBarWhenPushed = true
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
         navigationController?.pushViewController(detailVenuesController, animated: true)
         
-        
-        
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+      
+            self.tableView.reloadData()
         
       
         
@@ -113,6 +118,12 @@ class FavouritesController: UITableViewController , FavouritesVenuesDelegate {
         super.viewDidLoad()
         tableView.register(FavouritesCell.self, forCellReuseIdentifier: Cell.rowId.rawValue)
         favourites = CoreDataManager.shared.fetchVenues()
+             NotificationCenter.default.addObserver(self, selector: #selector(loadTableView), name: NSNotification.Name(rawValue: "load"), object: nil)
+        
+    }
+    @objc func loadTableView(){
+        favourites = CoreDataManager.shared.fetchVenues()
+        self.tableView.reloadData()
         
     }
 }
