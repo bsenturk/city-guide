@@ -22,6 +22,6 @@ class Constants {
     public let CLIENT_ID = "XT4XC24Y1MWCY2UDHOLA2WYJD5KA0EDSUYJ5YXDGZQ3DTVU2"
     public let CLIENT_SECRET = "VE4BPGU0Y30ACQDBR0SKMIRY2SFKXVMZVVF3WNBIFEKH1C0K"
     public let searchAPI = "https://api.foursquare.com/v2/venues/search?"
-    public let url = "http://localhost/IstanbulGuide/touristicvenues.php"
+    public let url =  "http://istanbulguide.ga"  //"http://localhost/IstanbulGuide/touristicvenues.php"
 }
 

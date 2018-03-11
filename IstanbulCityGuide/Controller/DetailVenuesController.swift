@@ -205,7 +205,12 @@ class DetailVenuesController: UIViewController {
         view.addSubview(detailTextView)
         centerXTextView = detailTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         centerXTextView.isActive = true
+        if UIScreen.main.bounds.height == 568{
+            detailTextView.heightAnchor.constraint(equalToConstant: 175).isActive = true
+
+        }else{
         detailTextView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        }
         detailTextView.topAnchor.constraint(equalTo: venuesImageView.bottomAnchor).isActive = true
         detailTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         detailTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true

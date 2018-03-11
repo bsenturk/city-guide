@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        // let navigationController = UINavigationController(rootViewController: tabBarController)
        UINavigationBar.appearance().barTintColor = UIColor.init(red: 0/255, green: 191/255, blue: 255/255, alpha: 1)
         window?.rootViewController = tabBarController
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    
         
         
         return true
@@ -44,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
